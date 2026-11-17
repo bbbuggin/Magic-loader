@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090711">
+<meta name="description" content="Magic Loader is a Minecraft Bedrock resource pack manager for iPad and mobile.">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Magic Loader</title>
+<style>
+:root{color-scheme:dark;--bg:#090711;--panel:#141120;--panel2:#1b1729;--line:#302741;--text:#f7f2ff;--muted:#a69bb8;--purple:#a855f7;--pink:#ec4899;--good:#6ee7b7;--warn:#fbbf24}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#382052 0,transparent 42%),var(--bg);color:var(--text);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+button,input{font:inherit}button{cursor:pointer}.app{max-width:920px;margin:auto;padding:env(safe-area-inset-top) 16px calc(28px + env(safe-area-inset-bottom))}
+header{display:flex;align-items:center;justify-content:space-between;padding:22px 2px 18px}.brand{display:flex;align-items:center;gap:12px}.logo{width:43px;height:43px;border-radius:15px;background:linear-gradient(135deg,#a855f7,#ec4899);display:grid;place-items:center;font-size:23px;box-shadow:0 8px 30px #a855f744}.brand h1{font-size:18px;line-height:1.1;margin:0;letter-spacing:.08em}.brand small{color:var(--muted);font-size:10px;letter-spacing:.18em}.status{border:1px solid #285b49;color:var(--good);background:#10231d;border-radius:99px;padding:5px 10px;font-size:11px}
+.hero{padding:25px;border:1px solid #49305d;border-radius:25px;background:linear-gradient(135deg,#241635,#171222 65%,#201329);position:relative;overflow:hidden}.hero:after{content:"✦";position:absolute;right:25px;top:15px;font-size:90px;color:#ffffff0b}.eyebrow{color:#d8a8ff;font-size:11px;font-weight:700;letter-spacing:.2em}.hero h2{font-size:clamp(29px,7vw,43px);line-height:1.04;margin:10px 0}.hero p{color:#c4b6d3;max-width:520px;margin:0 0 19px}.primary{border:0;color:white;background:linear-gradient(100deg,#9333ea,#db2777);padding:12px 17px;border-radius:13px;font-weight:700;box-shadow:0 7px 22px #a855f733}.secondary{border:1px solid var(--line);color:var(--text);background:var(--panel2);padding:10px 14px;border-radius:12px;font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.stat{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:13px}.stat b{font-size:20px;display:block}.stat span{font-size:11px;color:var(--muted)}
+nav{display:flex;gap:7px;overflow:auto;padding:5px 0 15px;scrollbar-width:none}nav button{white-space:nowrap;border:1px solid var(--line);border-radius:99px;background:var(--panel);color:var(--muted);padding:9px 14px;font-size:13px}nav button.active{background:#342044;border-color:#9d4edd;color:white}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:18px;margin:0 0 13px}.panel h3{margin:0 0 5px;font-size:17px}.sub{color:var(--muted);font-size:13px;margin:0 0 14px}.row{display:flex;align-items:center;justify-content:space-between;gap:12px}.drop{border:1.5px dashed #704c8c;border-radius:18px;padding:25px 16px;text-align:center;background:#1b1426}.drop strong{display:block;font-size:15px;margin:8px 0 3px}.drop p{color:var(--muted);font-size:12px;margin:0 0 14px}.drop input{display:none}.pack{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line)}.packicon{width:42px;height:42px;border-radius:13px;background:#30203f;display:grid;place-items:center;font-size:20px}.packinfo{flex:1;min-width:0}.packinfo b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.packinfo small{color:var(--muted)}.tag{font-size:10px;padding:4px 7px;border-radius:99px;background:#30203f;color:#d8b4fe}.empty{text-align:center;color:var(--muted);padding:20px 5px;font-size:13px}.shader-grid{display:grid;grid-template-columns:1fr;gap:12px}.shader-card{background:linear-gradient(145deg,#21182e,#15111f);border:1px solid #49345d;border-radius:17px;padding:15px}.shader-art{height:82px;border-radius:12px;margin-bottom:11px;display:flex;align-items:end;padding:10px;font-weight:800;letter-spacing:.1em;color:#fff;text-shadow:0 2px 8px #000}.shader-card h4{margin:0 0 4px;font-size:15px}.shader-card p{margin:0 0 10px;color:var(--muted);font-size:12px}.shader-meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}.shader-actions{display:flex;gap:8px}.shader-actions a{flex:1;text-align:center;text-decoration:none}.chip{font-size:10px;border-radius:99px;padding:4px 8px;background:#342044;color:#e9d5ff}.chip.warn{background:#3a2c13;color:#f8d995}@media(min-width:650px){.shader-grid{grid-template-columns:1fr 1fr}}.notice{padding:12px 13px;border-radius:13px;background:#2b2111;border:1px solid #59451d;color:#f8d995;font-size:12px}.ok{background:#11251e;border-color:#285b49;color:#a7f3d0}.hidden{display:none!important}.setting{padding:13px 0;border-top:1px solid var(--line)}footer{text-align:center;color:#766b85;font-size:11px;padding:20px 0}
+@media(min-width:700px){.app{padding-left:25px;padding-right:25px}.hero{padding:34px}.main-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:13px}.stats{margin-top:0}}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div class="brand"><div class="logo">✦</div><div><h1>MAGIC LOADER</h1><small>BEDROCK PACK MANAGER</small></div></div><div class="status">● READY</div></header>
+<section class="hero"><div class="eyebrow">YOUR WORLD. YOUR LOOK.</div><h2>Make your<br>world feel magical.</h2><p>Organize Minecraft Bedrock resource packs and send compatible packs to Minecraft from one clean place.</p><button class="primary" id="heroImport">＋ Import a pack</button></section>
+<div class="stats"><div class="stat"><b id="packCount">0</b><span>Saved packs</span></div><div class="stat"><b>iPad</b><span>Designed for mobile</span></div><div class="stat"><b>Local</b><span>Library metadata</span></div></div>
+<nav aria-label="Main navigation"><button class="active" data-tab="home">Home</button><button data-tab="library">My packs</button><button data-tab="shaders">Shaders</button><button data-tab="import">Import</button><button data-tab="settings">Settings</button></nav>
+<main>
+<section id="home" class="tab">
+<div class="main-grid">
+<div class="panel"><h3>Recently added</h3><p class="sub">Your latest imported pack records.</p><div id="recentList" class="empty">No packs yet. Import a .mcpack to get started.</div></div>
+<div class="panel"><h3>Quick guide</h3><p class="sub">How Magic Loader works on iPad.</p><ol style="padding-left:19px;color:#c8bed3;font-size:13px"><li>Choose a Bedrock .mcpack or .mcaddon file.</li><li>Tap Share to Minecraft when available.</li><li>Wait for Minecraft to import it.</li><li>Activate it in the world's Resource Packs settings.</li></ol></div>
+</div>
+<div class="notice" style="margin-top:13px">Magic Loader does not inject code into Minecraft or force unsupported shaders. It transfers pack files using iPadOS sharing.</div>
+</section>
+<section id="library" class="tab hidden"><div class="panel"><div class="row"><div><h3>My pack library</h3><p class="sub">Pack records saved on this device.</p></div><button class="secondary" id="libraryImport">＋ Add</button></div><div id="packList" class="empty">Your library is empty.</div></div></section>
+
+<section id="shaders" class="tab hidden">
+<div class="panel">
+ <h3>Shader library</h3>
+ <p class="sub">Popular Bedrock visual packs. Choose a creator page to get the current file.</p>
+ <div class="notice" style="margin-bottom:14px">These are catalog entries, not bundled shader files. Creators keep control of their downloads and licenses. Check the pack's version notes before installing.</div>
+ <div class="shader-grid">
+  <article class="shader-card">
+   <div class="shader-art" style="background:linear-gradient(120deg,#b87945,#344b56 55%,#14232d)">ENHANCED VV</div>
+   <h4>Enhanced Vibrant Visuals</h4>
+   <p>Richer atmosphere, biome fog, PBR textures, lighting and particles. Built on Vibrant Visuals.</p>
+   <div class="shader-meta"><span class="chip">Vibrant Visuals</span><span class="chip">Realistic</span><span class="chip">CurseForge</span></div>
+   <div class="shader-actions"><a class="primary" href="https://www.curseforge.com/minecraft-bedrock/texture-packs/enhanced-vibrant-visuals-official" target="_blank" rel="noopener">Creator page ↗</a></div>
+  </article>
+  <article class="shader-card">
+   <div class="shader-art" style="background:linear-gradient(120deg,#f2b35c,#9b6b77 50%,#1b2e4d)">ARCE VISUALS</div>
+   <h4>ARCE Visuals</h4>
+   <p>Cinematic sunrises, volumetric fog, aurora nights, prismatic storms and water caustics.</p>
+   <div class="shader-meta"><span class="chip">Vibrant Visuals</span><span class="chip">Cinematic</span><span class="chip">CurseForge</span></div>
+   <div class="shader-actions"><a class="primary" href="https://www.curseforge.com/minecraft-bedrock/texture-packs/arce-visuals-vibrant-visuals" target="_blank" rel="noopener">Creator page ↗</a></div>
+  </article>
+  <article class="shader-card">
+   <div class="shader-art" style="background:linear-gradient(120deg,#72b9d2,#285c70 55%,#172c45)">ULTRA VV</div>
+   <h4>Ultra Vibrant Visuals</h4>
+   <p>Enhances water, clouds, tone mapping and caustics with built-in PBR visuals.</p>
+   <div class="shader-meta"><span class="chip">Vibrant Visuals</span><span class="chip">Popular</span><span class="chip">MCPEDL</span></div>
+   <div class="shader-actions"><a class="primary" href="https://mcpedl.com/ultra-vibrant-visuals-for-vibrant-visuals/" target="_blank" rel="noopener">Creator page ↗</a></div>
+  </article>
+  <article class="shader-card">
+   <div class="shader-art" style="background:linear-gradient(120deg,#9bc5a0,#537e80 50%,#263c42)">DEBO SHADER</div>
+   <h4>Realistic Debo Shader</h4>
+   <p>Soft natural lighting, reflective water, lush foliage and soft clouds. Listing says best with Vibrant Visuals enabled.</p>
+   <div class="shader-meta"><span class="chip">Bedrock</span><span class="chip">Vibrant Visuals recommended</span><span class="chip">MCPEDL</span></div>
+   <div class="shader-actions"><a class="primary" href="https://mcpedl.com/realistic-debo-shader/" target="_blank" rel="noopener">Creator page ↗</a></div>
+  </article>
+  <article class="shader-card">
+   <div class="shader-art" style="background:linear-gradient(120deg,#6a9caa,#3b5477 50%,#18253d)">NEXORA</div>
+   <h4>Nexora Shader</h4>
+   <p>Cinematic color grading, dramatic sunrises and sunsets, richer water colors and biome lighting.</p>
+   <div class="shader-meta"><span class="chip">Bedrock</span><span class="chip">Visual pack</span><span class="chip">MCPEDL</span></div>
+   <div class="shader-actions"><a class="primary" href="https://mcpedl.com/nexora-shader/" target="_blank" rel="noopener">Creator page ↗</a></div>
+  </article>
+ </div>
+</div>
+<div class="notice">Important: a pack's presence here does not guarantee compatibility with every Bedrock release or every iPad. Check the creator's supported game versions. Packs that depend on Vibrant Visuals need that graphics mode available in your Minecraft settings.</div>
+</section>
+
+<section id="import" class="tab hidden"><div class="panel"><h3>Import resource pack</h3><p class="sub">Select a Minecraft Bedrock pack from Files.</p><label class="drop" for="fileInput"><div style="font-size:30px">📦</div><strong>Choose a pack file</strong><p>.mcpack, .mcaddon or .zip</p><span class="primary" style="display:inline-block">Browse Files</span><input id="fileInput" type="file" accept=".mcpack,.mcaddon,.zip,application/zip"></label><div id="selected" class="hidden" style="margin-top:14px"></div></div><div class="notice">A ZIP file is only accepted as a stored file. It may not be importable by Minecraft unless it is a correctly packaged Bedrock add-on. Java shader ZIPs are not Bedrock packs.</div></section>
+<section id="settings" class="tab hidden"><div class="panel"><h3>Settings</h3><p class="sub">Magic Loader preferences.</p><div class="setting row"><div><b>Saved pack records</b><div class="sub" style="margin:2px 0 0">Stored in this browser only</div></div><span id="settingsCount" class="tag">0 packs</span></div><div class="setting row"><div><b>Clear library</b><div class="sub" style="margin:2px 0 0">Remove saved records from this device</div></div><button class="secondary" id="clearBtn">Clear</button></div><div class="setting"><b>About</b><p class="sub" style="margin:4px 0 0">Magic Loader 1.0 · A lightweight Bedrock pack manager.</p></div></div></section>
+</main>
+<footer>MAGIC LOADER · VERSION 1.0 · PACKS STAY ON YOUR DEVICE</footer>
+</div>
+<script>
+const $=s=>document.querySelector(s);
+const KEY='magic-loader-packs-v1';
+let packs=JSON.parse(localStorage.getItem(KEY)||'[]');
+let selectedFile=null;
+function save(){localStorage.setItem(KEY,JSON.stringify(packs));render();}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function niceSize(n){if(n<1024)return n+' B';if(n<1048576)return (n/1024).toFixed(1)+' KB';return (n/1048576).toFixed(1)+' MB';}
+function packMarkup(p){return `<div class="pack"><div class="packicon">📦</div><div class="packinfo"><b>${esc(p.name)}</b><small>${esc(p.ext.toUpperCase())} · ${niceSize(p.size)} · ${esc(p.date)}</small></div><span class="tag">SAVED</span></div>`;}
+function render(){
+ $('#packCount').textContent=packs.length;$('#settingsCount').textContent=packs.length+' packs';
+ $('#recentList').innerHTML=packs.length?packs.slice(-3).reverse().map(packMarkup).join(''):'No packs yet. Import a .mcpack to get started.';
+ $('#packList').innerHTML=packs.length?packs.slice().reverse().map(packMarkup).join(''):'Your library is empty.';
+}
+function tab(name){document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('hidden',x.id!==name));document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x.dataset.tab===name));}
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>tab(b.dataset.tab)));
+$('#heroImport').onclick=()=>tab('import');$('#libraryImport').onclick=()=>tab('import');
+$('#fileInput').addEventListener('change',e=>{
+ const f=e.target.files?.[0];if(!f)return;selectedFile=f;
+ const ext=(f.name.split('.').pop()||'file').toLowerCase();
+ $('#selected').classList.remove('hidden');
+ $('#selected').innerHTML=`<div class="pack"><div class="packicon">📦</div><div class="packinfo"><b>${esc(f.name)}</b><small>${niceSize(f.size)} · Ready to share</small></div></div><div class="row" style="margin-top:12px"><button class="primary" id="shareBtn">Share to Minecraft</button><button class="secondary" id="saveBtn">Save record</button></div><p class="sub" id="shareStatus" style="margin-top:10px"></p>`;
+ $('#shareBtn').onclick=()=>shareFile(f);
+ $('#saveBtn').onclick=()=>{if(!packs.some(p=>p.name===f.name&&p.size===f.size)){packs.push({name:f.name,ext,size:f.size,date:new Date().toLocaleDateString()});save();}$('#shareStatus').textContent='Pack record saved. The actual file remains in Files until you share or import it.';};
+});
+async function shareFile(file){
+ const status=$('#shareStatus');
+ try{
+  if(navigator.canShare&&navigator.canShare({files:[file]})&&navigator.share){
+   await navigator.share({files:[file],title:'Import '+file.name,text:'Open this Bedrock pack in Minecraft.'});
+   status.textContent='Share sheet opened. Choose Minecraft if it appears.';
+  }else{
+   const url=URL.createObjectURL(file);const a=document.createElement('a');a.href=url;a.download=file.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+   status.textContent='File downloaded. Open Files, find the pack, tap Share, then choose Minecraft.';
+  }
+ }catch(err){if(err.name==='AbortError'){status.textContent='Sharing cancelled.';}else{status.textContent='Could not open sharing. Try downloading the file and sharing it from Files.';}}
+}
+$('#clearBtn').onclick=()=>{if(confirm('Clear all saved pack records? This will not delete files already imported into Minecraft.')){packs=[];save();}};
+if('serviceWorker' in navigator && location.protocol.startsWith('http')){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));}
+render();
+</script>
+</body></html>
